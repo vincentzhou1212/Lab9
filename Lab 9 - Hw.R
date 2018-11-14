@@ -1,3 +1,4 @@
+library(microbenchmark)
 
 ## Problem 1 from Activity 9
 odd_count = function(x) {
@@ -7,6 +8,15 @@ odd_count = function(x) {
   }
   return(odd_num)
 }
+
+odd_count1= function(x) {
+  return(sum(x %% 2))
+}
+
+x = seq(1, 10000, by = 1)
+
+microbenchmark(odd_count(x), odd_count1(x))
+
 ## Modify the sorting function (sort_vec) from "Assignment 8" (problem 3) so that it should 
 ## take an additional argument ascending which causes sorting in increasing order when 
 ## 'ascending = TRUE'.
